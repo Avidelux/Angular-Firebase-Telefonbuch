@@ -1,5 +1,8 @@
-<p>
+<p *ngIf="showContent">
   detail-view works!
   {{ entryID }}
-  
+  {{ entry.name }}
+  {{ entry.surname }}
+  {{ entry.mail }}
+  {{ entry.number }}
 </p>

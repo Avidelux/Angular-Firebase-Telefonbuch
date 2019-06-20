@@ -12,12 +12,15 @@ import { Entry } from '../entry.model';
 export class DetailViewComponent implements OnInit {
 
   entryID; 
+  entry;
+  public showContent: boolean = false;
 
   constructor( private route: ActivatedRoute, private entryService: EntryService ) { }
   
   ngOnInit() {
+    setTimeout(()=>this.showContent=true, 1000); // delay html page execution in order to have entry-variable fully loaded before accessing its name-property
     this.getID();
-
+    this.displayEntry(this.entryID);
   }
 
   getID(){
@@ -27,16 +30,7 @@ export class DetailViewComponent implements OnInit {
 
   displayEntry(id: string){ 
     this.entryService.getEntry(id).get().toPromise().then(
-      function(documentSnapshot){
-        if(documentSnapshot.exists){
-          var data = documentSnapshot.data();
-          console.log(data);
-          console.log(
-           JSON.stringify(data));
-        }else{
-          console.log("document doesnt exist");
-        }
-      }
+      documentSnapshot => {this.entry = documentSnapshot.data()}
     )
       
     

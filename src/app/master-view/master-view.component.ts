@@ -29,9 +29,7 @@ export class MasterViewComponent implements OnInit {
           }
         )
       } // assign data from observable to entries-array
-    )
-    console.log(this.entries);
-    
+    )    
   }
 
 }
