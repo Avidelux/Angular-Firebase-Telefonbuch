@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MasterViewComponent } from './master-view/master-view.component';
+import { EntryService } from './entry.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { MasterViewComponent } from './master-view/master-view.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EntryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

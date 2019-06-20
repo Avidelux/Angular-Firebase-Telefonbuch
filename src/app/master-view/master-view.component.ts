@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-const entries = [
-  {name: "Hans", number: "032453"}, 
-  {name: "Thomas", number: "4535"},
-  {name: "Freddy", number: "348512"},
-  {name: "Gustav", number: "904762893"}
-]
+import { EntryService } from '../entry.service';
 
 @Component({
   selector: 'app-master-view',
@@ -14,11 +8,16 @@ const entries = [
 })
 export class MasterViewComponent implements OnInit {
 
-  entries = entries;
+  entries = [];
 
-  constructor() { }
+  constructor( private entryService: EntryService ) { }
 
   ngOnInit() {
+    this.loadEntries();
+  }
+
+  loadEntries(){
+    this.entries = this.entryService.getEntries();
   }
 
 }
