@@ -9,11 +9,13 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DetailViewComponent } from './detail-view/detail-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MasterViewComponent
+    MasterViewComponent,
+    DetailViewComponent
   ],
   imports: [
     BrowserModule,
