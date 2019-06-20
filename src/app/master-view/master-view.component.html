@@ -3,3 +3,25 @@
     <li *ngFor="let entry of entries"><a [routerLink]="'entry/' + entry.id"> {{ entry.name }} </a> | {{ entry.id }} | {{ entry.number }}</li>
   </ul>
 </div>
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+  <div>
+    <input name="name" #name="ngModel" [(ngModel)]="formData.name" class="form-control" placeholder="Name" required>
+  </div>
+  <div *ngIf="name.invalid && name.touched" class="validation-error">
+    Required!
+  </div>
+  <div>
+    <input name="surname" #surname="ngModel" [(ngModel)]="formData.surname" class="form-control" placeholder="Surname">
+  </div>
+  <div>
+    <input name="number" #number="ngModel" [(ngModel)]="formData.number" class="form-control" placeholder="Number">
+  </div>
+  <div>
+    <input name="mail" #mail="ngModel" [(ngModel)]="formData.mail" class="form-control" placeholder="Mail">
+  </div>
+  <div>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </div>
+</form>

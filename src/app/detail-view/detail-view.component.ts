@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EntryService } from '../entry.service';
-import { Entry } from '../entry.model';
 
 @Component({
   selector: 'app-detail-view',
@@ -18,7 +17,7 @@ export class DetailViewComponent implements OnInit {
   constructor( private route: ActivatedRoute, private entryService: EntryService ) { }
   
   ngOnInit() {
-    setTimeout(()=>this.showContent=true, 1000); // delay html page execution in order to have entry-variable fully loaded before accessing its name-property
+    setTimeout(()=>this.showContent=true, 200); // delay html page execution in order to have entry-variable fully loaded before accessing its name-property
     this.getID();
     this.displayEntry(this.entryID);
   }

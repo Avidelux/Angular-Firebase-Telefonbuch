@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntryService } from '../entry.service';
 import { Entry } from '../entry.model';
-
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-master-view',
@@ -11,11 +11,13 @@ import { Entry } from '../entry.model';
 export class MasterViewComponent implements OnInit {
 
   entries: Entry[];
+  formData: Entry;
 
   constructor( private entryService: EntryService ) { }
 
   ngOnInit() {
     this.loadEntries();
+    this.resetForm();
   }
 
   loadEntries(){
@@ -31,5 +33,28 @@ export class MasterViewComponent implements OnInit {
       } // assign data from observable to entries-array
     )    
   }
+
+  resetForm(form ?: NgForm){
+    if(form != null)
+      form.resetForm();
+    this.formData = {
+      id: null,
+      name: '',
+      surname: '',
+      number: '',
+      mail: '',
+    }
+  }
+
+  onSubmit(form: NgForm){
+    let data = Object.assign({}, form.value);
+    delete data.id;
+    if(form.value.id == null){
+      this.entryService.firebaseCollection.add(data);
+    }
+    this.resetForm(form);
+  }
+
+  
 
 }

@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { MasterViewComponent } from './master-view/master-view.component';
 import { EntryService } from './entry.service';
 import { environment } from 'src/environments/environment';
+import { DetailViewComponent } from './detail-view/detail-view.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { DetailViewComponent } from './detail-view/detail-view.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
     DetailViewComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

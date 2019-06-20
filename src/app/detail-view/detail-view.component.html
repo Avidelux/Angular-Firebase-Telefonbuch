@@ -1,8 +1,14 @@
-<p *ngIf="showContent">
+<p>
   detail-view works!
   {{ entryID }}
-  {{ entry.name }}
-  {{ entry.surname }}
-  {{ entry.mail }}
-  {{ entry.number }}
 </p>
+
+<button [routerLink]="'/'">Back to home</button>
+
+<ul *ngIf="showContent">
+  <li>Name: {{ entry.name }}</li>
+  <li>Surname: {{ entry.surname }}</li>
+  <li>Mail: {{ entry.mail }}</li>
+  <li>Number: {{ entry.number }}</li>
+</ul>
+
