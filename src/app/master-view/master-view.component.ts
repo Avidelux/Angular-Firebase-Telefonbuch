@@ -12,6 +12,7 @@ export class MasterViewComponent implements OnInit {
 
   entries: Entry[];
   formData: Entry;
+  displayedColumns: string[] = ['name', 'surname', 'number', 'mail'];
 
   constructor( private entryService: EntryService ) { }
 
