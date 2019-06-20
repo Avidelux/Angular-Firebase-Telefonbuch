@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntryService {
 
-  constructor() { }
+  constructor( private firestore: AngularFirestore ) {   }
 
-  getEntries(){
-    return [
-      {name: "Hans", number: "032453"}, 
-      {name: "Thomas", number: "4535"},
-      {name: "Freddy", number: "348512"},
-      {name: "Gustav", number: "904762893"}
-    ]
+  getEntries(){ // returns all entries in the collection as an observable
+    return this.firestore.collection('entries').snapshotChanges();
   }
 }
