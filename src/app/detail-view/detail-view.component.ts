@@ -18,7 +18,7 @@ export class DetailViewComponent implements OnInit {
   public showEditForm: boolean = false;
   formData: Entry;
   columnsToDisplay: string[] = ['name', 'surname', 'number', 'mail'];
-  dataSource:Entry[] = [ {id:'3', name: 'jonas', surname: '2r24', number: '34t54', mail: '43grtgr'} ];
+  dataSource:Entry[];
 
   constructor( private route: ActivatedRoute, private entryService: EntryService ) { }
   
@@ -26,7 +26,7 @@ export class DetailViewComponent implements OnInit {
     setTimeout(()=>this.showContent=true, 2000); // delay html page execution in order to have entry-variable fully loaded before accessing its name-property
     this.getID();
     this.displayEntry(this.entryID);
-    this.dataSource = [ {id: this.entry.id, name: this.entry.name, surname: this.entry.surname, number: this.entry.number, mail: this.entry.mail} ];
+    setTimeout(()=>{this.dataSource = [ {id: this.entryID, name: this.entry.name, surname: this.entry.surname, number: this.entry.number, mail: this.entry.mail} ];}, 500 );
   }
 
   getID(){

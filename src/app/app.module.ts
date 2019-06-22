@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule,MatOptionModule, MatSelectModule, MatIconModule } from '@angular/material'
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
     MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [EntryService],
   bootstrap: [AppComponent]
